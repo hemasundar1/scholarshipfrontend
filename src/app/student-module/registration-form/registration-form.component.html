@@ -1,0 +1,87 @@
+<div class="container">
+
+    <form class="border p-5" [formGroup]="RegistrationPage" (ngSubmit)="onAddUser(RegistrationPage)">
+        <div class="row g-0">
+            <div class="col text-center p-2 mb-3 " id="head" >
+                <span class="fs-3">Register here</span>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="userName" class="form-label">User Name: </label>
+                        <input type="text" class="form-control" id="userName" formControlName="userName">
+
+                        <div class="form_text">
+                            <span style="color: red;" *ngIf=" userName&& userName.invalid && userName.touched">First name is Required</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="mail" class="form-label">E-mail : </label>
+                <input type="email" class="form-control" id="mail" formControlName="email">
+                <div class="form_text">
+                    <span style="color: red;" *ngIf=" email && email.invalid && email.touched">Email is Required</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="mobile" class="form-label">Contact no. : </label>
+                <input type="text" class="form-control" id="mobile" formControlName="mobileNumber">
+                <div class="form_text">
+                    <div class="error"  *ngIf="  mobileNumber &&  mobileNumber.invalid && ( mobileNumber.touched ||  mobileNumber.dirty)">
+                        <span style="color:red" *ngIf= " mobileNumber.errors?.['required']">*Number is Required. </span>
+                        <span style="color:red" *ngIf= " mobileNumber.errors?.['pattern']">Enter the Valid number . </span>
+                    </div>
+                    
+                </div>
+             </div>
+        </div>
+      
+        <div class="row">
+            <div class="col mb-3">
+                <label for="pwd" class="form-label">Password: </label>
+                <input type="password" class="form-control" id="pwd" formControlName="password">
+                <div class="form-text">
+
+                   <div class="error"  *ngIf="password && password.invalid && (password.touched || password.dirty)">
+                            
+                        <span style="color:red" *ngIf= "password.errors?.['required']">*Password is Required. </span> 
+                        <span style="color:red" *ngIf= "password.errors?.['pattern']">Password must be 8-16 characters and contain numbers,letters and special characters! </span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col mb-3">
+                <label for="Cpwd" class="form-label">Confirm Password: </label>
+                <input type="password" class="form-control" id="Cpwd" formControlName="confirmPassword">
+                <div class="form-text">
+                    <div class="error"  *ngIf="confirmPassword && confirmPassword.invalid && (confirmPassword.touched || confirmPassword.dirty)">
+                            
+                        <span style="color:red" *ngIf= "confirmPassword.errors?.['required']">*Confirm your password. </span>
+                        <span style="color:red" *ngIf= "confirmPassword.errors?.['pattern']">Password must be 8-16 characters and contain numbers,letters and special characters! </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <input type="hidden" id="userRole" name="userRole" value="Student" formControlName="userRole" >
+        </div>
+        <div class="row ">
+            <div class="col-6 offset-3 mb-3">
+                <div class="d-grid">
+                    <button [disabled]="RegistrationPage.invalid" type="submit" (click)="register()">Submit</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="d-grid">
+                <label for="new">Already Registered ?: <a routerLink="/login" id="new"> Click here</a> </label>
+            </div>
+        </div>
+    </form>
+</div>

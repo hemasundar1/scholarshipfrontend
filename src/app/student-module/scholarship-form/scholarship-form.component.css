@@ -1,0 +1,37 @@
+form{
+    width: 1200px;
+    
+    box-shadow: 10px 10px 20px rgb(141, 135, 139);
+    border-style: none;
+    /* background-color: rgb(159, 189, 189); */
+    background-color: black;
+
+    
+ }
+ .container{
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 80%;
+     color: aliceblue;
+    
+ }
+ #head{
+    background-color: rgb(211, 83, 83);
+     box-shadow: 0px 0px 10px rgb(175, 171, 171);
+     color: aliceblue;
+     border-radius: 20px;
+ }
+ button{
+     padding: 6px;
+     background-color: rgb(211, 83, 83);
+     border-style: none;
+     color: aliceblue;
+     border-radius: 20px;
+     margin-top: 7%;
+ }
+ button:hover{
+     background-color: rgb(192, 63, 59);
+     color: black;
+ }

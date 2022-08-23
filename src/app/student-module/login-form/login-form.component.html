@@ -1,0 +1,41 @@
+<div class="container">
+    <form class="border p-5" [formGroup]="loginPage" (ngSubmit)="login()">
+        <div class="col text-center p-2 mb-3 " id="head">
+            <span class="fs-3">Sign in</span>
+        </div>
+        <div class="row ">
+            <label for="email" class="form-label">E-mail: </label>
+            <input type="email" placeholder="Enter your e-mail" id="email" formControlName="email">
+            <div class="form-text">
+                <span class="error" *ngIf="email && email.invalid && email.touched">Email is Invalid</span>
+            </div>
+        </div>
+        <div class="row  ">
+            <label for="pwd" class="form-label">Password: </label>
+            <input type="password" placeholder="Enter your password" id="pwd" formControlName="password">
+                <!-- <br> -->
+                <div class="error" *ngIf=" password && password.invalid && (password.touched || password.dirty)">
+                    <br> <span style="color:red" *ngIf="password.errors?.['required']">*Password is Required. </span>
+                </div>
+        </div>
+        <div class="row ">
+            <div class="col-6 offset-3">
+                <div class="d-grid">
+                    <button type="submit"(click)="login()">Submit</button>
+                    <div class="form-text"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="d-grid">
+                <label for="new">New User: <a routerLink="/registration" id="new"> Click here</a> </label>
+                <label for="employee">Employee login: <a routerLink="#" id="employee"> Click here</a> </label>
+                <label for="admin">Admin login: <a routerLink="#" id="admin"> Click here</a> </label>
+               
+            </div>
+        </div>
+    </form>
+
+   
+</div>
