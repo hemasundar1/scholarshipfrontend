@@ -27,7 +27,7 @@ export class LoginFormComponent implements OnInit {
       (response: any)=>{
         this.userauthservice.setRoles(response.user.userRole);
         this.userauthservice.setToken(response.jwtToken);
-        this.userauthservice.setUserId(response.user.id);
+        this.userauthservice.setUserId(response.user.userId);
         this.userauthservice.setUserEmail(response.user.email);
         const role = response.user.userRole;
         if(role==='Admin'){
@@ -35,6 +35,9 @@ export class LoginFormComponent implements OnInit {
         }
         else if(role=='Student'){
           this.router.navigate(['scholarshipForm']);
+        }
+        else if(role=='Employee'){
+          this.router.navigate(['employee/homepage']);
         }
         console.log(response);
       },(err)=>{

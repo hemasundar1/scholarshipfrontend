@@ -1,0 +1,21 @@
+<app-employeehomepage></app-employeehomepage>
+<br><br>
+<div *ngFor="let x of xapp">
+    <div *ngIf="x.status==null || x.status==''">
+        <div id="requeststruct" class="grid-container pb-3 pt-3">
+            <div class="grid-item">Scholarship Id : {{x.appId}}</div>
+            <div class="grid-item">Student FirstName : {{x.firstName}}</div>
+            <div class="grid-item">Student LastName : {{x.lastName}}</div>
+            <div class="grid-item">Student ClassName : {{x.className}}</div>
+            <div class="grid-item">State : {{x.state}}</div>
+            <div class="grid-item">collegeName : {{x.collegeName}}</div>
+           <!-- <div class="grid-item">Email: {{x.emailId}}</div>
+            <div class="grid-item">Phone Number: {{x.phonenumber}}</div>
+            <div class="grid-item">AadharNumber : {{x.aadharCardNumber}}</div>-->
+            <div class="grid-item">Address: {{x.postalAddress}}</div>
+            <div class="grid-item">AccountNumber: {{x.documentDetails.accountNum}}</div>
+            <div class="grid-item">Email: {{x.userModel.email}}</div>
+            <div class="grid-item"><button (click)="onClick(x.appId)" class="btn btn-primary btn-sm">View</button></div>
+        </div><br><br>
+    </div>
+</div>

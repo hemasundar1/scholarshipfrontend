@@ -62,7 +62,7 @@
                     <div class="error"  *ngIf="confirmPassword && confirmPassword.invalid && (confirmPassword.touched || confirmPassword.dirty)">
                             
                         <span style="color:red" *ngIf= "confirmPassword.errors?.['required']">*Confirm your password. </span>
-                        <span style="color:red" *ngIf= "confirmPassword.errors?.['pattern']">Password must be 8-16 characters and contain numbers,letters and special characters! </span>
+            
                     </div>
                 </div>
             </div>

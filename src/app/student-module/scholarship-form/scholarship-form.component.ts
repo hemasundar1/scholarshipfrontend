@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AnyForUntypedForms, Validators } from '@angular/forms';
 import { ScholarshipService } from 'src/app/Services/scholarshipService/scholarship.service';
+import { UserAuthService } from 'src/app/Services/userAuth/user-auth.service';
 
 @Component({
   selector: 'app-scholarship-form',
@@ -19,9 +20,12 @@ export class ScholarshipFormComponent implements OnInit {
   state: any;
   className: any;
   postalAddress: any;
+  studentId:any;
   public userFile: any;
-  constructor(private scholarship: ScholarshipService) {
+  constructor(private scholarship: ScholarshipService,private userauthservice:UserAuthService) {
 
+    this.studentId=this.userauthservice.getUserId();
+    console.log(this.studentId);
 
   }
 
@@ -29,6 +33,11 @@ export class ScholarshipFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  a:any;
+  b:any;
+  add:any;
+  max:number=9;
+  entervalue:any;
 
   ApplicationForm = new FormGroup({
     scholarshipDetails: new FormGroup({
@@ -106,30 +115,38 @@ console.log("not working");
       const user = this.ApplicationForm.controls["scholarshipDetails"].value;
       console.log(user);
       const formData = new FormData();
-      this.firstName = this.ApplicationForm.controls['scholarshipDetails.firstName']?.value;
-      this.lastName = this.ApplicationForm.controls['scholarshipDetails.lastName']?.value;
-      this.collegeName = this.ApplicationForm.controls['scholarshipDetails.collegeName']?.value;
-      this.state = this.ApplicationForm.controls['scholarshipDetails.state']?.value;
-      this.postalAddress = this.ApplicationForm.controls['scholarshipDetails.postalAddress']?.value;
-      this.className = this.ApplicationForm.controls['scholarshipDetails.className']?.value;
+      this.firstName = user.firstName;
+      this.lastName = user.lastName;
+      this.collegeName = user.collegeName;
+      this.state = user.state;
+      this.postalAddress = user.postalAddress;
+      this.className = user.className;
 console.log("yaha pahucaha");
 console.log(this.firstName);
       formData.append('file', this.userFile);
       // console.log("formdata h ye",formData);
-      this.scholarship.uploadImage(formData, this.firstName, this.lastName, this.collegeName, this.state, this.postalAddress, this.className).subscribe({
+      this.scholarship.uploadImage(formData, this.firstName, this.lastName, this.collegeName, this.state, this.postalAddress, this.className,this.studentId).subscribe({
         next: (res) => {
           this.appId = res;
           console.log("doc thak pahucha");
           console.log(res);
-          this.scholarship.saveDoc(this.appId, this.ApplicationForm.controls['documentDetails'].value).subscribe({
-            next: (res) => {
-              console.log(res);
-              console.log("successfully updated");
-            }, error(err) {
-              console.log(err);
-            }
-          })
-
+          this.a=Math.floor(Math.random() * (this.max + 1));
+    this.b=Math.floor(Math.random()* (this.max + 1));
+    console.log(this.a,this.b);
+    this.add=prompt(" CAPTCHA : enter the addition of "+this.a+" + "+this.b);
+    this.entervalue=parseInt(this.add);
+    if((this.a+this.b)==(this.add)){
+      this.scholarship.saveDoc(this.appId, this.ApplicationForm.controls['documentDetails'].value).subscribe({
+        next: (res) => {
+          console.log("successfully updated");
+        }, error(err) {
+          console.log(err);
+        }
+      })
+    }
+    else{
+      window.alert("Enter correct Addition value");
+    }  
         },
         error: (err) => {
           alert("error while uploading");

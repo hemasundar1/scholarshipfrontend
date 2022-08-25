@@ -9,6 +9,11 @@ import { UserModelService } from 'src/app/Services/UserService/user-model.servic
 })
 export class RegistrationFormComponent implements OnInit {
   constructor(private userModelService:UserModelService) { }
+  a:any;
+  b:any;
+  add:any;
+  max:number=9;
+  entervalue:any;
 
   ngOnInit(): void {
   }
@@ -39,15 +44,23 @@ export class RegistrationFormComponent implements OnInit {
       this.RegistrationPage.markAllAsTouched();
       return;
     }
-    else{
+    else {
+      this.a=Math.floor(Math.random() * (this.max + 1));
+    this.b=Math.floor(Math.random()* (this.max + 1));
+    console.log(this.a,this.b);
+    this.add=prompt(" CAPTCHA : enter the addition of "+this.a+" + "+this.b);
+    this.entervalue=parseInt(this.add);
+    if((this.a+this.b)==(this.add)){
       this.userModelService.saveUser(this.RegistrationPage.value).subscribe(
         (response:any) => {
           console.log(response);
           console.warn(this.RegistrationPage.value);
-          alert('Thank You for Registration');
-          
+          alert('Thank You for Registration'); })
     }
-      )
+    else{
+      window.alert("Enter correct Addition value");
+    }
+      
   }
 
 

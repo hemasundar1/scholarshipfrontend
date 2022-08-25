@@ -17,6 +17,11 @@ import { NavBarComponent } from './student-module/nav-bar/nav-bar.component';
 import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.interceptor';
 import { LoginService } from './Services/loginService/login.service';
+import { EmployeerequestsComponent } from './employee-module/employeerequests/employeerequests.component';
+import { EmployeehomepageComponent } from './employee-module/employeehomepage/employeehomepage.component';
+import { EmployeedetailsComponent } from './employee-module/employeedetails/employeedetails.component';
+import { EmployeesearchComponent } from './employee-module/employeesearch/employeesearch.component';
+import { EmployeeloginComponent } from './employee-module/employeelogin/employeelogin.component';
 
 
 
@@ -27,7 +32,12 @@ import { LoginService } from './Services/loginService/login.service';
     LoginFormComponent,
     ScholarshipFormComponent,
     ForbiddenComponent,
-    NavBarComponent
+    NavBarComponent,
+    EmployeerequestsComponent,
+    EmployeehomepageComponent,
+    EmployeedetailsComponent,
+    EmployeesearchComponent,
+    EmployeeloginComponent
    
   
   ],

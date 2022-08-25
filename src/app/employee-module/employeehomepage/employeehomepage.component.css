@@ -1,0 +1,25 @@
+#homepage{
+    background-color: aqua;
+    padding: 0.5cm;
+}
+#requests{
+    text-decoration: none;
+    font-size: large;
+    margin-left: 4cm ;
+    color: rgb(1, 9, 15);
+}
+#requeststatus{
+    text-decoration: none;
+    font-size: large;
+    margin-left: 6cm;
+    color: rgb(1, 9, 15);
+}
+#logout{
+    text-decoration: none;
+    font-size: large;
+    margin-left: 9cm;
+    color: rgb(1, 9, 15);
+}
+a:hover{
+    background-color: aliceblue;
+}
