@@ -18,7 +18,7 @@ export class EmployeesearchComponent implements OnInit {
   }
   searchRequest()
   {
-    this.empserve.getRequestById(this.userid).subscribe(data=>{this.x=data});
+    this.empserve.getDocumentById(this.userid).subscribe(data=>{this.x=data});
   }
 
 }

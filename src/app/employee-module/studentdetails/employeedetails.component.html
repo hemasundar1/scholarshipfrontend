@@ -1,0 +1,27 @@
+<app-employeehomepage></app-employeehomepage>
+<br>
+<h4 style="text-align: center;">You are seeing details of <b>{{stuid}}</b></h4>
+<h2 id="details">{{x.application_details.firstName}} {{x.application_details.lastName}}</h2>
+<b><hr></b>
+        <div id="requeststruct" class="grid-container pb-3 pt-3">
+            <div class="grid-item">Scholarship Id : <b> {{x.id}}</b></div>
+            <div class="grid-item">Student FirstName :<b> {{x.application_details.firstName}}</b></div>
+            <div class="grid-item">Student LastName : <b>{{x.application_details.lastName}}</b></div>
+            <div class="grid-item">Student ClassName :<b> {{x.application_details.className}}</b></div>
+            <div class="grid-item">Student State :<b> {{x.application_details.state}}</b></div>
+            <div class="grid-item">Student collegeName :<b> {{x.application_details.collegeName}}</b></div>
+            <div class="grid-item">Studenet PostalAddress: <b>{{x.application_details.postalAddress}}</b></div>
+            <div class="grid-item">Student Email: <b>{{x.application_details.userModel.email}}</b></div>
+            <div class="grid-item">Student mobileNumber: <b>{{x.application_details.userModel.mobileNumber}}</b></div>
+            <div class="grid-item">Student rollNumber: <b> {{x.rollNum}}</b></div>
+            <h4>Bank details</h4>
+            <h4></h4>
+            <div class="grid-item">Bank Account Number: <b>{{x.accountNum}}</b></div>
+            <div class="grid-item">Aadhar Card Number:<b> {{x.adharNum}}</b></div>
+            <div class="grid-item">Bank Branch Name: <b>{{x.branch}}</b></div>
+            <div class="grid-item">Bank IFSC Number: <b>{{x.ifscNum}}</b></div>
+            <button type="button" (click)="approve()" style="margin-left: 14cm;width: 3cm;" class="btn btn-success btn-lg">Approve</button>
+            <button type="button" (click)="reject()" style="margin: 1cm;width: 3cm;" class="btn btn-danger btn-lg">Reject</button>
+        </div>
+
+

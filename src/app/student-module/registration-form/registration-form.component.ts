@@ -20,7 +20,6 @@ export class RegistrationFormComponent implements OnInit {
 
   RegistrationPage= new FormGroup({
     userName: new FormControl('',Validators.required),
-   
     email: new FormControl('',Validators.required),
     mobileNumber: new FormControl('',Validators.required),
     password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,16}$')]),

@@ -21,34 +21,14 @@ export class EmployeeserviceService {
  private reject=this.baseURL+"requestReject"
  
   constructor(private http:HttpClient) { }
-documentdetailsvalues(appId:any):Observable<DocumentDetails>
-{
-  return this.http.get<DocumentDetails>(this.baseURL+"document?id="+appId,{responseType:'text' as 'json'});
-}
 
-  appliedscholarship():Observable<ApplicationDetails[]>
+  appliedscholarship():Observable<any>
   {
-     return this.http.get<ApplicationDetails[]>(`${this.allrequestsapp}`);
-  }
-  applieddocuments():Observable<DocumentDetails[]>
-  {
-    return this.http.get<DocumentDetails[]>(`${this.allrequestsdocments}`);
-  }
-  appliedusers():Observable<UserModel[]>
-  {
-    return this.http.get<UserModel[]>(`${this.allrequestsusers}`);
+     return this.http.get<any>(`${this.allrequestsdocments}`);
   }
   getDocumentById(id:any):Observable<DocumentDetails>
   {
     return this.http.get<DocumentDetails>(`${this.allrequestsdocments}/${id}`);
-  }
-  getUserById(id:any):Observable<UserModel>
-  {
-    return this.http.get<UserModel>(`${this.allrequestsusers}/${id}`);
-  }
-  getRequestById(id:any):Observable<ApplicationDetails>
-  {
-    return this.http.get<ApplicationDetails>(`${this.allrequestsapp}/${id}`);
   }
   approveStatus(id:number,approveA:ApplicationDetails)
   {

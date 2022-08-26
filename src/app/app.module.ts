@@ -17,11 +17,16 @@ import { NavBarComponent } from './student-module/nav-bar/nav-bar.component';
 import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.interceptor';
 import { LoginService } from './Services/loginService/login.service';
-import { EmployeerequestsComponent } from './employee-module/employeerequests/employeerequests.component';
-import { EmployeehomepageComponent } from './employee-module/employeehomepage/employeehomepage.component';
-import { EmployeedetailsComponent } from './employee-module/employeedetails/employeedetails.component';
-import { EmployeesearchComponent } from './employee-module/employeesearch/employeesearch.component';
+import { EmployeerequestsComponent } from './employee-module/studentrequests/employeerequests.component';
+
+import { EmployeedetailsComponent } from './employee-module/studentdetails/employeedetails.component';
+import { EmployeesearchComponent } from './employee-module/studentsearch/employeesearch.component';
 import { EmployeeloginComponent } from './employee-module/employeelogin/employeelogin.component';
+import { AdminhomepageComponent } from './admin-module/adminhomepage/adminhomepage.component';
+import { EmployeeupdateComponent } from './admin-module/employeeupdate/employeeupdate.component';
+import { EmployeelistComponent } from './admin-module/employeelist/employeelist.component';
+import { EmployeehomepageComponent } from './employee-module/employeehomepage/employeehomepage.component';
+import { AdminloginComponent } from './admin-module/adminlogin/adminlogin.component';
 
 
 
@@ -37,7 +42,11 @@ import { EmployeeloginComponent } from './employee-module/employeelogin/employee
     EmployeehomepageComponent,
     EmployeedetailsComponent,
     EmployeesearchComponent,
-    EmployeeloginComponent
+    EmployeeloginComponent,
+    AdminhomepageComponent,
+    EmployeeupdateComponent,
+    EmployeelistComponent,
+    AdminloginComponent
    
   
   ],

@@ -6,18 +6,18 @@
         <input class="form-control" style="margin-left: 5cm; width:20cm ;" [(ngModel)]="userid" type="text" placeholder="ScholarshipId"><br>
         <button (click)="searchRequest()" style="margin-left:13cm;width:3cm ;" class="btn btn-primary btn-sm">Search</button>
     </div><br>
-   <div *ngIf="x.appId==this.userid">
+   <div *ngIf="x.id==this.userid">
         <div id="requeststruct" class="grid-container pb-3 pt-3">
-            <div class="grid-item">Scholarship Id : <b> {{x.appId}}</b></div>
-            <div class="grid-item">Student FirstName :<b> {{x.firstName}}</b></div>
-            <div class="grid-item">Student LastName : <b>{{x.lastName}}</b></div>
-            <div class="grid-item">Student ClassName :<b> {{x.className}}</b></div>
-            <div class="grid-item">Student State :<b> {{x.state}}</b></div>
-            <div class="grid-item">Student collegeName :<b> {{x.collegeName}}</b></div>
+            <div class="grid-item">Scholarship Id : <b> {{x.id}}</b></div>
+            <div class="grid-item">Student FirstName :<b> {{x.application_details.firstName}}</b></div>
+            <div class="grid-item">Student LastName : <b>{{x.application_details.lastName}}</b></div>
+            <div class="grid-item">Student ClassName :<b> {{x.application_details.className}}</b></div>
+            <div class="grid-item">Student State :<b> {{x.application_details.state}}</b></div>
+            <div class="grid-item">Student collegeName :<b> {{x.application_details.collegeName}}</b></div>
           <!--  <div class="grid-item">Email: {{x.emailId}}</div>
             <div class="grid-item">Phone Number: {{x.phonenumber}}</div>
             <div class="grid-item">AadharNumber : {{x.aadharCardNumber}}</div>-->
-            <div class="grid-item">Studenet PostalAddress: <b>{{x.postalAddress}}</b></div>
+            <div class="grid-item">Studenet PostalAddress: <b>{{x.application_details.postalAddress}}</b></div>
             <div *ngIf="x.status=='approved'">
                 <div style="background-color: green;width: fit-content;" class="grid-item">Status: {{x.status}}</div>
             </div>

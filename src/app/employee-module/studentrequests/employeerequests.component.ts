@@ -16,13 +16,13 @@ export class EmployeerequestsComponent implements OnInit {
 
   ngOnInit(): void {
     
-    //this.empserve.appliedscholarship().subscribe(data=>{console.log(data),this.xapp=data});
+    this.empserve.appliedscholarship().subscribe(data=>{console.log(data),this.xapp=data});
    // this.empserve.applieddocuments().subscribe(data=>{console.log(data),this.xdoc=data});
     //this.empserve.appliedusers().subscribe(data=>{console.log(data),this.xuser=data});
   }
   public onClick(id:number)
   {
-    this.router.navigate(['employee/details',id]);
+    this.router.navigate(['request/details',id]);
   }
 
 }

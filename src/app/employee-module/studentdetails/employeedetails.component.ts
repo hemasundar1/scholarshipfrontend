@@ -21,23 +21,19 @@ export class EmployeedetailsComponent implements OnInit {
   }
   private fulldetails()
   {
-    //this.empserve.getRequestById(this.stuid).subscribe(data=>{console.log(data),this.x=data});
-    //this.empserve.getDocumentById(this.stuid).subscribe(data=>{this.xdoc=data});
-    //this.empserve.getUserById(this.stuid).subscribe(data=>{this.xuser=data});
-    //console.log(this.xdoc.applicationId);
-    this.empserve.documentdetailsvalues(this.stuid).subscribe(data=>{console.log(data),this.x=data});
+    this.empserve.getDocumentById(this.stuid).subscribe(data=>{console.log(data),this.x=data});
   }
   public approve()
   {
     this.empserve.approveStatus(this.x.appId,this.x).subscribe(data=>this.x=data);
     window.alert("REQUEST APPROVED !!!");
-    this.route.navigate(['employee/requests']);
+    this.route.navigate(['student/requests']);
   }
   public reject()
   {
     this.empserve.rejectStatus(this.x.appId,this.x).subscribe(data=>this.x=data);
     window.alert("REQUEST REJECTED !!!");
-    this.route.navigate(['employee/requests']);
+    this.route.navigate(['student/requests']);
   }
 
 }

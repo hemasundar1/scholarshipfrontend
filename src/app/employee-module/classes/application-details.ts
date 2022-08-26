@@ -13,6 +13,6 @@ export class ApplicationDetails {
     state:any;
     status:any;
     url:any;
-    documentDetails:DocumentDetails;
+    Application_details:ApplicationDetails;
     userModel:UserModel;
 }

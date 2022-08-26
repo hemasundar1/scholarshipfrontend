@@ -30,8 +30,8 @@ export class LoginFormComponent implements OnInit {
         this.userauthservice.setUserId(response.user.userId);
         this.userauthservice.setUserEmail(response.user.email);
         const role = response.user.userRole;
-        if(role==='Admin'){
-          ;
+        if(role=='Admin'){
+          this.router.navigate(['admin/homepage']);
         }
         else if(role=='Student'){
           this.router.navigate(['scholarshipForm']);

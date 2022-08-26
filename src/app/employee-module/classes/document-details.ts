@@ -1,3 +1,6 @@
+import { ApplicationDetails } from "./application-details";
+import { UserModel } from "./user-model";
+
 export class DocumentDetails {
     accountNum:any;
     adharNum:any;
@@ -6,4 +9,6 @@ export class DocumentDetails {
     ifscNum:any;
     rollNum:any;
     applicationId:any;
+    application_details:ApplicationDetails;
+    userModel:UserModel;
 }
