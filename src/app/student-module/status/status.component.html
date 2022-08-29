@@ -1,0 +1,30 @@
+<app-nav-bar></app-nav-bar>
+<div class="card " style="align-items:center">
+    <h1>wsovlKM</h1>
+</div>
+<ng-container *ngFor="let x of statusValue">
+    <div class="grid-container mt-3" *ngIf="x.application_details.userModel.userId==currentUser.userId"  >
+            <div id="requeststruct" class="grid-container ">
+                <div class="grid-item">Scholarship Id : <b> {{x.id}}</b></div>
+                <div class="grid-item">Student FirstName :<b> {{x.application_details.firstName}}</b></div>
+                <div class="grid-item">Student LastName : <b>{{x.application_details.lastName}}</b></div>
+                <div class="grid-item">Student ClassName :<b> {{x.application_details.className}}</b></div>
+                <div class="grid-item">Student State :<b> {{x.application_details.state}}</b></div>
+                <div class="grid-item">Student collegeName :<b> {{x.application_details.collegeName}}</b></div>
+              <!--  <div class="grid-item">Email: {{x.emailId}}</div>
+                <div class="grid-item">Phone Number: {{x.phonenumber}}</div>
+                <div class="grid-item">AadharNumber : {{x.aadharCardNumber}}</div>-->
+                <div class="grid-item">Studenet PostalAddress: <b>{{x.application_details.postalAddress}}</b></div>
+                <div *ngIf="x.status=='approved'">
+                    <div style="background-color: green;width: fit-content;" class="grid-item">Status: {{x.status}}</div>
+                </div>
+                <div *ngIf="x.status=='rejected'">
+                    <div style="background-color: red;width: fit-content;" class="grid-item">Status: {{x.status}}</div>
+                </div>
+                <div *ngIf="x.status==null || x.status==''">
+                    <div style="background-color: yellow;width: fit-content;" class="grid-item">Status: In_progress</div>
+                </div>
+                <div class="grid-item" *ngIf="x.application_details.assigned !=0">Assined To Employee Id :<b>{{x.application_details.assigned}}</b></div>
+            </div><br><br>
+        </div>
+</ng-container>

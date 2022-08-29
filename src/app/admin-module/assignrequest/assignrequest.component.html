@@ -1,0 +1,34 @@
+<app-adminhomepage> </app-adminhomepage>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 style="text-align: center;">Requests to assign</h2>
+  </div>
+  <div class="container">
+      <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                
+                <th>student Name</th>
+                <th>Email</th>
+                <th>mobile Number</th>
+                <th>Assign</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let xapp of requests">
+              <tr *ngIf="xapp.assigned==0">
+                <td>{{xapp.firstName}} {{xapp.lastName}}</td>
+                <td>{{xapp.userModel.email}}</td>
+                <td>{{xapp.userModel.mobileNumber}}</td>
+                <td>
+                  <button (click)="goTo(xapp.appId)" class="btn btn-success">Assign</button>
+                  <!--<button (click)="deleteEmployee(employee.userId)" class="btn btn-danger">Delete</button>
+                  <button (click)="updateEmployee(employee.userId)" class="btn btn-primary" style="margin-left: 10px">Update</button>
+                  <button (click)="employeeDetails(employee.userId)" class="btn btn-info" style="margin-left: 10px">Details</button>-->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+  </div>
+</div>

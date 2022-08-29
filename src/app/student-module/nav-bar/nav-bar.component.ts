@@ -10,18 +10,28 @@ import { UserAuthService } from 'src/app/Services/userAuth/user-auth.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-
+  value=true;
   constructor(private userAuthService: UserAuthService, private loginService:LoginService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  logOut()
+  {
+      this.value=window.confirm("Do you want to logOut for SURE ! :( ?");
+      if(this.value==true)
+      {
+        this.router.navigate(['login']);
+        this.userAuthService.clear();
+      }
   }
 
   public isLoggedIn(){
     return this.userAuthService.isLoggedIn();
   }
 
-  public logout(){
+  /*public logout(){
     this.userAuthService.clear();
-  }
+  }*/
 
 }

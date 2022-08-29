@@ -15,23 +15,19 @@ export class EmployeelistComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
-    this.reloadData();
+   this.reloadData();
   }
 
-  reloadData() {
-    this.employees = this.adminserve.getEmployeesList();
+  private reloadData() {
+    this.adminserve.getEmployeesList().subscribe(data=>{console.log(data),this.employees=data});
   }
 
   deleteEmployee(id: number) {
     this.value = window.confirm("Do you want to delete? id: " + id);
-    if(this.value == true) {
-      this.adminserve.deleteEmployee(id)
-      .subscribe(
-        (data: any) => {
-          console.log(data);
-          this.reloadData();
-        },
-        (error: any) => console.log(error));
+    if(this.value === true) {
+      this.adminserve.deleteEmployees(id).subscribe(data=>{this.employees=data});
+      window.location.reload();
+      this.router.navigate(['admin/employeelist']);
     }
   }
 

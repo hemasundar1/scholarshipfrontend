@@ -3,14 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeserviceService } from 'src/app/Services/employeeService/employeeservice.service';
 
 @Component({
-  selector: 'app-employeedetails',
-  templateUrl: './employeedetails.component.html',
-  styleUrls: ['./employeedetails.component.css']
+  selector: 'app-studentdetails',
+  templateUrl: './studentdetails.component.html',
+  styleUrls: ['./studentdetails.component.css']
 })
-export class EmployeedetailsComponent implements OnInit {
+export class StudentdetailsComponent implements OnInit {
+
   x:any;
-  xdoc:any;
-  xuser:any;
   stuid:any;
   constructor(private empserve:EmployeeserviceService,private aroute:ActivatedRoute,private route:Router) { 
     this.stuid=this.aroute.snapshot.params['id'];
@@ -23,15 +22,16 @@ export class EmployeedetailsComponent implements OnInit {
   {
     this.empserve.getDocumentById(this.stuid).subscribe(data=>{console.log(data),this.x=data});
   }
-  public approve()
+  public approve(x:any)
   {
-    this.empserve.approveStatus(this.x.appId,this.x).subscribe(data=>this.x=data);
+    
+    this.empserve.approveStatus(x.application_details.appId,x).subscribe(data=>this.x=data);
     window.alert("REQUEST APPROVED !!!");
     this.route.navigate(['student/requests']);
   }
-  public reject()
+  public reject(x:any)
   {
-    this.empserve.rejectStatus(this.x.appId,this.x).subscribe(data=>this.x=data);
+    this.empserve.rejectStatus(x.application_details.appId,x).subscribe(data=>this.x=data);
     window.alert("REQUEST REJECTED !!!");
     this.route.navigate(['student/requests']);
   }

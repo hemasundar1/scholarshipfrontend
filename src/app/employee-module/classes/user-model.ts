@@ -5,5 +5,5 @@ export class UserModel {
     password:any;
     userId:any;
     userName:any;
-    userRole:any;
+    userRole:String;
 }

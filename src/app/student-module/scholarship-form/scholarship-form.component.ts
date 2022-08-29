@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AnyForUntypedForms, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ScholarshipService } from 'src/app/Services/scholarshipService/scholarship.service';
 import { UserAuthService } from 'src/app/Services/userAuth/user-auth.service';
 
@@ -22,7 +23,7 @@ export class ScholarshipFormComponent implements OnInit {
   postalAddress: any;
   studentId:any;
   public userFile: any;
-  constructor(private scholarship: ScholarshipService,private userauthservice:UserAuthService) {
+  constructor(private scholarship: ScholarshipService,private userauthservice:UserAuthService,private router:Router) {
 
     this.studentId=this.userauthservice.getUserId();
     console.log(this.studentId);
@@ -121,15 +122,15 @@ console.log("not working");
       this.state = user.state;
       this.postalAddress = user.postalAddress;
       this.className = user.className;
-console.log("yaha pahucaha");
-console.log(this.firstName);
+//console.log("yaha pahucaha");
+//console.log(this.firstName);
       formData.append('file', this.userFile);
       // console.log("formdata h ye",formData);
       this.scholarship.uploadImage(formData, this.firstName, this.lastName, this.collegeName, this.state, this.postalAddress, this.className,this.studentId).subscribe({
         next: (res) => {
           this.appId = res;
-          console.log("doc thak pahucha");
-          console.log(res);
+         // console.log("doc thak pahucha");
+          //console.log(res);
           this.a=Math.floor(Math.random() * (this.max + 1));
     this.b=Math.floor(Math.random()* (this.max + 1));
     console.log(this.a,this.b);
@@ -138,7 +139,9 @@ console.log(this.firstName);
     if((this.a+this.b)==(this.add)){
       this.scholarship.saveDoc(this.appId, this.ApplicationForm.controls['documentDetails'].value).subscribe({
         next: (res) => {
-          console.log("successfully updated");
+          window.alert("Thank you for Applying the scholarship !! :)");
+          this.router.navigate(['student/homepage']);
+         // console.log("successfully updated");
         }, error(err) {
           console.log(err);
         }

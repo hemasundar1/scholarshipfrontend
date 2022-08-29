@@ -1,0 +1,54 @@
+<app-adminhomepage></app-adminhomepage>
+<br>
+<h2 style="text-align: center;">Assign request to Employee</h2>
+<hr>
+<div [hidden]="submitted" style="width: 400px;">
+  <form style="margin-left: 3cm;">
+    <div class="form-group">
+      <label for="firstName">Student firstName</label><br>
+      <input type="text" class="form-control" [(ngModel)]="requests.firstName" name="firstName">
+    </div><br>
+
+    <div class="form-group">
+        <label for="lastName">Student lastName</label><br>
+        <input type="text" class="form-control" [(ngModel)]="requests.lastName" name="lastName">
+      </div><br>
+
+    <div class="form-group">
+        <label for="name">Email Id</label><br>
+        <input type="text" class="form-control" [(ngModel)]="requests.userModel.email" name="email">
+    </div><br>
+
+   <!-- <div class="form-group">
+        <label for="name">Password</label>
+        <input type="text" class="form-control" id="password" required [(ngModel)]="employee.password" name="password">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Confirm Password</label>
+        <input type="text" class="form-control" id="confirmPassword" required [(ngModel)]="employee.confirmPassword" name="confirmPassword">
+    </div>-->
+
+    <div class="form-group">
+        <label for="name">Phone Number</label><br>
+        <input type="text" class="form-control" [(ngModel)]="requests.userModel.mobileNumber" name="mobileNumber">
+    </div><br>  
+
+    <div class="form-group">
+        <label for="name">Assign employee Id</label><br>
+        <select type="Number" class="form-control" [(ngModel)]="requests.assigned" name="assigned">
+          <option>Select EmployeeId</option>
+            <ng-container *ngFor="let x of employee"> 
+              <ng-container *ngIf="x.userRole=='Employee'">
+                <option>{{x.userId}} </option>
+              </ng-container>
+           </ng-container>
+        </select>
+       <!-- <span *ngIf="requests.assinged!=0 || requests.assinged!= null || requests.assinged!=''">assign to employee please!!</span>-->
+        <span >click on assign employee Id and select the employee</span>
+    </div><br> 
+
+    <button type="submit" (click)="onSubmit()" class="btn btn-success btn-lg">assign to Employee</button>
+    <button (click)="gotoList()" class="btn btn-primary btn-sm" style="margin-left: 300px">Back </button><br>
+  </form>
+</div>

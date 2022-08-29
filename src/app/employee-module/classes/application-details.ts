@@ -1,3 +1,4 @@
+import { NgStyle } from "@angular/common";
 import { DocumentDetails } from "./document-details";
 import{UserModel} from "./user-model";
 
@@ -13,6 +14,6 @@ export class ApplicationDetails {
     state:any;
     status:any;
     url:any;
-    Application_details:ApplicationDetails;
+    assigned:any;
     userModel:UserModel;
 }

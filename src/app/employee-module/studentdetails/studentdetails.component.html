@@ -20,8 +20,6 @@
             <div class="grid-item">Aadhar Card Number:<b> {{x.adharNum}}</b></div>
             <div class="grid-item">Bank Branch Name: <b>{{x.branch}}</b></div>
             <div class="grid-item">Bank IFSC Number: <b>{{x.ifscNum}}</b></div>
-            <button type="button" (click)="approve()" style="margin-left: 14cm;width: 3cm;" class="btn btn-success btn-lg">Approve</button>
-            <button type="button" (click)="reject()" style="margin: 1cm;width: 3cm;" class="btn btn-danger btn-lg">Reject</button>
+            <button type="button" (click)="approve(x)" style="margin-left: 14cm;width: 3cm;" class="btn btn-success btn-lg">Approve</button>
+            <button type="button" (click)="reject(x)" style="margin: 1cm;width: 3cm;" class="btn btn-danger btn-lg">Reject</button>
         </div>
-
-

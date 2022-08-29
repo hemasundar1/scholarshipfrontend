@@ -1,1 +1,33 @@
-<p>employeedetails works!</p>
+<app-adminhomepage></app-adminhomepage>
+<br>
+<h2 style="text-align: center;">Employee Details {{userId}}</h2>
+<hr>
+<div style="margin-left: 3cm;">
+    <div>
+        <label>Employee Id: </label> <b>{{ employee.userId }}</b>
+    </div>
+
+    <div>
+        <label>Employee Name: </label> <b>{{employee.userName}}</b>
+    </div>
+
+     <div>
+        <label>Email Id: </label> <b>{{employee.email}}</b>
+    </div>
+
+   <!-- <div>
+        <label><b>Password: </b></label> {{employee.password}}
+    </div>-->
+
+    <div>
+        <label>Phone Number: </label> <b>{{employee.mobileNumber}}</b>
+    </div>
+
+   <!--<div>
+        <label><b>Role: </b></label> {{employee.role}}
+    </div>-->
+
+    <br>
+    <button (click)="gotoList()" class="btn btn-primary">Back</button>
+    
+</div>

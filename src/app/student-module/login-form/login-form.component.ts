@@ -34,7 +34,7 @@ export class LoginFormComponent implements OnInit {
           this.router.navigate(['admin/homepage']);
         }
         else if(role=='Student'){
-          this.router.navigate(['scholarshipForm']);
+          this.router.navigate(['student/homepage']);
         }
         else if(role=='Employee'){
           this.router.navigate(['employee/homepage']);

@@ -1,8 +1,8 @@
 <app-nav-bar></app-nav-bar>
 
-<div class="container">
+<div class="container" >
 
-    <form [formGroup]="ApplicationForm" class="border p-5" (ngSubmit)="submitted()">
+    <form style="margin-top: 2cm;" [formGroup]="ApplicationForm" class="border p-5" (ngSubmit)="submitted()">
         <div formGroupName="scholarshipDetails" *ngIf="step==1" >
 
             <div class="row g-0" >
@@ -59,14 +59,13 @@
                     <input type="file" class="form-control" id="marksheet" accept="image/*" (change)="onSelectFile($event)" style="background-color: white;">
                 </div>
             </div>
-            
         </div>
    
 <!--                              second page                            -->
 <div formGroupName="documentDetails" *ngIf="step==2" >
 
     <div class="row g-0" >
-        <div class="col text-center p-2 mb-6 " id="head" >
+        <div class="col text-center p-2 mb-5 " id="head" >
             <span class="fs-3">Document Details</span>
         </div>
         <div>

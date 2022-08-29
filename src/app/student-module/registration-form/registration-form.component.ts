@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserModelService } from 'src/app/Services/UserService/user-model.service';
+
 
 @Component({
   selector: 'app-registration-form',
@@ -8,7 +10,7 @@ import { UserModelService } from 'src/app/Services/UserService/user-model.servic
   styleUrls: ['./registration-form.component.css']
 })
 export class RegistrationFormComponent implements OnInit {
-  constructor(private userModelService:UserModelService) { }
+  constructor(private userModelService:UserModelService,private router:Router) { }
   a:any;
   b:any;
   add:any;
@@ -25,7 +27,8 @@ export class RegistrationFormComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,16}$')]),
     confirmPassword: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,16}$')]),
     userRole: new FormControl('Student',[Validators.required])
-  });
+  }
+  );
 
   register(){
     if(this.RegistrationPage.invalid){
@@ -54,7 +57,9 @@ export class RegistrationFormComponent implements OnInit {
         (response:any) => {
           console.log(response);
           console.warn(this.RegistrationPage.value);
-          alert('Thank You for Registration'); })
+          alert('Thank You for Registration');
+          this.router.navigate(['login']);
+         })
     }
     else{
       window.alert("Enter correct Addition value");

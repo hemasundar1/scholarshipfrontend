@@ -6,7 +6,7 @@
         <input class="form-control" style="margin-left: 5cm; width:20cm ;" [(ngModel)]="userid" type="text" placeholder="ScholarshipId"><br>
         <button (click)="searchRequest()" style="margin-left:13cm;width:3cm ;" class="btn btn-primary btn-sm">Search</button>
     </div><br>
-   <div *ngIf="x.id==this.userid">
+   <div *ngIf="x.id==this.userid && x.application_details.assigned!=0">
         <div id="requeststruct" class="grid-container pb-3 pt-3">
             <div class="grid-item">Scholarship Id : <b> {{x.id}}</b></div>
             <div class="grid-item">Student FirstName :<b> {{x.application_details.firstName}}</b></div>
@@ -27,6 +27,7 @@
             <div *ngIf="x.status==null || x.status==''">
                 <div style="background-color: yellow;width: fit-content;" class="grid-item">Status: In_progress</div>
             </div>
+            <div class="grid-item">Assined To Employee Id :<b>{{x.application_details.assigned}}</b></div>
         </div><br><br>
     </div>
 </div>

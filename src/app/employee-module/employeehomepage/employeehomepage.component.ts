@@ -19,7 +19,7 @@ export class EmployeehomepageComponent implements OnInit {
     this.value=window.confirm("Do you want to LogOut ?");
     if(this.value==true)
     {
-      this.router.navigate(['/login']);
+      this.router.navigate(['login']);
     }
   } 
 }

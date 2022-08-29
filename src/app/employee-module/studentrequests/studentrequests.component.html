@@ -2,7 +2,7 @@
 <br><br>
 <div *ngFor="let x of xapp">
     <div *ngIf="x.application_details.status==null || x.application_details.status==''">
-        <div id="requeststruct" class="grid-container pb-3 pt-3">
+        <div *ngIf="currentUser.userId==x.application_details.assigned" id="requeststruct" class="grid-container pb-3 pt-3">
             <div class="grid-item">Scholarship Id : <b>{{x.id}}</b></div>
             <div class="grid-item">Student FirstName : <b>{{x.application_details.firstName}}</b></div>
             <div class="grid-item">Student LastName : <b>{{x.application_details.lastName}}</b></div>
@@ -14,6 +14,7 @@
             <div class="grid-item">Student Email: <b>{{x.application_details.userModel.email}}</b></div>
             <div class="grid-item"></div>
             <div class="grid-item"><button (click)="onClick(x.id)" class="btn btn-primary btn-lg">View</button></div>
+            
         </div><br><br>
     </div>
 </div>
