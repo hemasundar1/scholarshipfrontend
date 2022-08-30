@@ -34,19 +34,11 @@ export class CreateemployeeComponent implements OnInit {
       console.log(this.employee);
   }
 
-  onSubmit() {
-    console.log(this.employee.password, this.employee.confirmPassword);
-    if(this.employee.password === this.employee.confirmPassword) {
+  onSubmit() { 
       this.submitted = true;
       console.log("pass in sumbit");
-      this.save();
-
-    } else {
-      this.submitted = false;
-      console.log("fail in sumbit");
+      this.save(); 
     }
-        
-  }
 
   gotoList() {
     this.router.navigate(['admin/employeelist']);

@@ -18,13 +18,13 @@
             <div class="grid-item">Phone Number: {{x.phonenumber}}</div>
             <div class="grid-item">AadharNumber : {{x.aadharCardNumber}}</div>-->
             <div class="grid-item">Studenet PostalAddress: <b>{{x.application_details.postalAddress}}</b></div>
-            <div *ngIf="x.status=='approved'">
-                <div style="background-color: green;width: fit-content;" class="grid-item">Status: {{x.status}}</div>
+            <div *ngIf="x.application_details.status=='approved'">
+                <div style="background-color: green;width: fit-content;" class="grid-item">Status: {{x.application_details.status}}</div>
             </div>
-            <div *ngIf="x.status=='rejected'">
-                <div style="background-color: red;width: fit-content;" class="grid-item">Status: {{x.status}}</div>
+            <div *ngIf="x.application_details.status=='rejected'">
+                <div style="background-color: red;width: fit-content;" class="grid-item">Status: {{x.application_details.status}}</div>
             </div>
-            <div *ngIf="x.status==null || x.status==''">
+            <div *ngIf="x.application_details.status==null || x.application_details.status==''">
                 <div style="background-color: yellow;width: fit-content;" class="grid-item">Status: In_progress</div>
             </div>
             <div class="grid-item">Assined To Employee Id :<b>{{x.application_details.assigned}}</b></div>

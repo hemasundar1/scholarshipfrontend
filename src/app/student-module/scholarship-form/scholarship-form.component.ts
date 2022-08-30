@@ -152,7 +152,8 @@ console.log("not working");
     }  
         },
         error: (err) => {
-          alert("error while uploading");
+          window.alert("Form is already Submmited");
+          this.router.navigate(['student/status']);
         }
       })
     }

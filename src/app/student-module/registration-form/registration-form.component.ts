@@ -25,7 +25,7 @@ export class RegistrationFormComponent implements OnInit {
     email: new FormControl('',Validators.required),
     mobileNumber: new FormControl('',Validators.required),
     password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,16}$')]),
-    confirmPassword: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,16}$')]),
+    //confirmPassword: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,16}$')]),
     userRole: new FormControl('Student',[Validators.required])
   }
   );
@@ -85,9 +85,9 @@ export class RegistrationFormComponent implements OnInit {
     return this.RegistrationPage.get('password');
   }
 
-  get confirmPassword(){
+ /* get confirmPassword(){
     return this.RegistrationPage.get('confirmPassword');
-  }
+  }*/
 
   get userName(){
     return this.RegistrationPage.get('userName');

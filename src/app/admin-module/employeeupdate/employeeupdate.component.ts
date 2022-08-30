@@ -45,7 +45,6 @@ export class EmployeeupdateComponent implements OnInit {
   }
 
   gotoList() {
-    window.location.reload();
     this.router.navigate(['admin/employeelist']);
   }
 

@@ -18,6 +18,7 @@ export class UpdateComponent implements OnInit {
     state:"",
     className:"",
     collegeName:"",
+    status:"",
 
   };
   currentUser:any;
